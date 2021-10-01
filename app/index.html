@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Dotnet 6.0 App</title>
+  </head>
+
+  <body>
+    <main>
+      <h1>Dotnet 6.0 App</h1>
+      <p>Loading content from the API: <b id="message"></b></b></p>
+    </main>
+  </body>
+
+  <script>
+    (async function () {
+      let response = await fetch(`api/HttpExample`);
+      let message = await response.text();
+      document.querySelector("#message").innerHTML = message
+    })();
+  </script>
+</html>

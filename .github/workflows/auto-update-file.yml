@@ -1,0 +1,22 @@
+
+name: AutoUpdateFile
+on:
+  schedule:
+  - cron: "*/60 * * * *"
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run update file script
+      run: node ./updateDateTime.js
+    - name: Commit and push
+      uses: test-room-7/action-update-file@v1.1.0
+      with:
+        commit-msg: "Auto update api/HttpExample.cs"
+        file-path: "api/HttpExample.cs"
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main
+    
