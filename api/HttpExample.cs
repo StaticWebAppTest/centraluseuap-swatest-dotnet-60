@@ -19,7 +19,7 @@ namespace dotnet_60
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
-string date = "2022-04-14T01:10:31.470Z";
+string date = "2022-04-14T03:02:10.673Z";
 
             return new OkObjectResult(date + "one two three four five six");
         }
